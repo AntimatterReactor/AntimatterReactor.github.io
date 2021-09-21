@@ -1,0 +1,54 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@1,300&family=Oxygen:wght@300&family=Ubuntu:ital@1&display=swap");
+
+* {
+  background-color: rgb(7, 12, 43);
+  color: rgb(225, 220, 234);
+  font-family: "Oxygen", sans-serif;
+}
+
+body {
+  margin: 0;
+}
+
+.main-title-primary {
+  color: rgb(102, 16, 45);
+  text-align: center;
+  padding: 10vmin;
+  margin: 0;
+  background-image: url("resource/banner.png");
+  font-family: "Ubuntu", sans-serif;
+  transition: ease-in 1s;
+}
+
+.main-title-primary:hover {
+  padding: 20vmin;
+}
+
+.project-list {
+  list-style: none;
+  padding: 0;
+}
+
+.nav-bar {
+  display: flex;
+  align-items: stretch;
+}
+
+.nav-item-left {
+  border-style: solid;
+  border-width: 1px;
+  border-color: rgb(40, 49, 90);
+}
+
+.nav-item-right {
+}
+
+.nav-button {
+  padding: 4vmin;
+  align-self: stretch;
+}
+
+.nav-button:hover {
+  background-color: rgb(225, 220, 234);
+  color: rgb(102, 16, 45);
+}
