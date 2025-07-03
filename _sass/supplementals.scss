@@ -1,0 +1,9 @@
+.wrapper-header {
+  color: aqua;
+
+  @media (min-width: 768px) {
+    .wrapper-header {
+      max-width: 100%;
+    }
+  }
+}

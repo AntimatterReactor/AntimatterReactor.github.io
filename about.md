@@ -1,7 +1,7 @@
 ---
 layout: page
 title: About
-permalink: /about/
+permalink: /about
 ---
 
 I'm Ezra Alvarion, also known as [{{site.username.github}} on Github](https://github.com/{{site.username.github}}), [Hexal Random on Soundcloud](https://soundcloud.com/{{site.username.soundcloud}}), the absurd on Twitter/X, 

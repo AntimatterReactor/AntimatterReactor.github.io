@@ -1,4 +1,5 @@
 _site
+_minima*
 .vscode
 .sass-cache
 .jekyll-cache

@@ -22,8 +22,8 @@ title: Factual Obelisk
 author: Ezra Alvarion
 email: ezraalvarion71+blog@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
-  When the absurd meets the truth, one thing to remember is
-  that the original is unfaithful to the translation.
+  When the absurd meets the truth.
+  "The original is unfaithful to the translation."
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 username:
@@ -33,7 +33,7 @@ username:
 
 # Build settings
 # theme: minima
-remote_theme: aterenin/minima-reboot
+# remote_theme: aterenin/minima-reboot
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
@@ -45,11 +45,6 @@ sass:
 minima_reboot:
   date_format: "%a, %F"
   date_format_short: "%b %d"
-
-footer_icons:
-  - username: aterenin/minima-reboot/
-    url: https://github.com/aterenin/minima-reboot/
-    icon: icon-github.svg
 
 # Exclude from processing.
 # The following items will not be processed, by default.
