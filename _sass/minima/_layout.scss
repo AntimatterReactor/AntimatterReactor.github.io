@@ -2,11 +2,8 @@
  * Site header
  */
 .site-header {
-  border-top: 5px solid $grey-color-dark;
-  border-bottom: 1px solid $grey-color-light;
-  min-height: $spacing-unit * 1.865;
-
-  // Positioning context for the mobile navigation icon
+  border-top: 5px solid var(--bs-emphasis-color);
+  border-bottom: 1px solid var(--bs-border-color);
   position: relative;
 }
 
@@ -14,86 +11,101 @@
   @include relative-font-size(2);
   font-family: "Lavishly Yours", cursive;
   font-weight: 400;
-  font-style: normal;
   line-height: $base-line-height * $base-font-size * 2.5;
   letter-spacing: 1px;
-  margin-bottom: 0;
-  float: left;
 
   &,
-  &:visited {
-    color: $grey-color-dark;
+  &:visited,
+  &:hover {
+    color: var(--bs-emphasis-color);
+    text-decoration: none;
   }
 }
 
 .site-nav {
-  float: right;
-  line-height: inherit;
-
-  .nav-trigger {
-      display: none;
-  }
-
-  .menu-icon {
+  .nav-trigger,
+  label[for="nav-trigger"] {
     display: none;
   }
 
-  .page-link {
-    color: $text-color;
-    line-height: inherit;
+  .trigger {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .site-nav-link {
+    color: var(--bs-body-color);
+
+    &.active {
+      color: var(--bs-emphasis-color);
+      font-weight: 600;
+    }
   }
 
   @include media-query($on-palm) {
-    position: absolute;
-    top: 9px;
-    right: $spacing-unit * 0.4;
-    background-color: $background-color;
-    text-align: center;
-    display: block;
-    padding: 0;
-
     label[for="nav-trigger"] {
       display: block;
-      float: right;
-      width: 36px;
-      height: 36px;
-      z-index: 2;
       cursor: pointer;
-      max-width: none;
     }
 
     .menu-icon {
-      display: block;
-      float: right;
-      width: 36px;
-      line-height: 0;
-      text-align: center;
-      border: 1px solid $grey-color-light;
-      border-radius: 5px;
-      height: inherit;
-
-      > svg {
-        fill: $grey-color-dark;
-      }
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      font-size: 1.5rem;
+      color: var(--bs-emphasis-color);
     }
 
-    input ~ .trigger {
-      clear: both;
+    .trigger {
       display: none;
+      position: absolute;
+      top: 100%;
+      right: 0.75rem;
+      z-index: 10;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0;
+      min-width: 12rem;
+      padding: 0.5rem 0;
+      background-color: var(--bs-body-bg);
+      border: 1px solid var(--bs-border-color);
+      border-radius: 0.5rem;
     }
 
     input:checked ~ .trigger {
-      display: inline-block;
-      padding-bottom: 5px;
-      padding-left: 25%;
-      border: 1px solid $grey-color-light;
-      border-radius: 5px;
+      display: flex;
     }
 
-    .page-link {
-      display: block;
-      padding: 5px 15px 5px 0px;
+    .site-nav-link {
+      padding: 0.6rem 1.25rem;
     }
+  }
+}
+
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  margin-left: 0.75rem;
+  padding: 0;
+  font-size: 1.25rem;
+  color: var(--bs-emphasis-color);
+  background: none;
+  border: 0;
+  border-radius: 50%;
+
+  &:hover {
+    background-color: var(--bs-tertiary-bg);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--bs-link-color);
+    outline-offset: 2px;
   }
 }
 
@@ -103,7 +115,7 @@
  * Site footer
  */
 .site-footer {
-  border-top: 1px solid $grey-color-light;
+  border-top: 1px solid var(--bs-border-color);
   padding: $spacing-unit 0;
 }
 
@@ -120,7 +132,7 @@
 
 .footer-col-wrapper {
   @include relative-font-size(0.9375);
-  color: $grey-color;
+  color: var(--bs-secondary-color);
   margin-left: -$spacing-unit * 0.5;
   @extend %clearfix;
 }
@@ -196,7 +208,7 @@
 
 .post-meta {
   font-size: $small-font-size;
-  color: $grey-color;
+  color: var(--bs-secondary-color);
 }
 
 .post-link {

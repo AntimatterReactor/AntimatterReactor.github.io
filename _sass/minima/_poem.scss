@@ -1,8 +1,4 @@
-// Poem layout: keep author's line breaks, stanzas are paragraphs.
-.poem-body {
-  p {
-    white-space: pre-line;
-    text-align: left;
-    margin-bottom: 1.5em;
-  }
+.poem-body p {
+  text-align: left;
+  margin-bottom: 1.5em;
 }
