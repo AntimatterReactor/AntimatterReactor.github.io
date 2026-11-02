@@ -1,0 +1,24 @@
+---
+layout: default
+---
+{%- comment -%}
+  Poem layout. Write one verse line per source line; leave a blank line
+  between stanzas. No trailing backslashes or double spaces needed.
+{%- endcomment -%}
+<article class="poem" itemscope itemtype="http://schema.org/CreativeWork">
+
+  <header class="pt-4 pb-3">
+    <h1 itemprop="name headline">{{ page.title | escape }}</h1>
+    <p class="text-secondary">
+      <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
+        {% assign date_format = site.minima_reboot.date_format | default: "%b %-d, %Y" %}
+        {{ page.date | date: date_format }}
+      </time>
+    </p>
+  </header>
+
+  <div class="poem-body" itemprop="text">
+    {{ content }}
+  </div>
+
+</article>

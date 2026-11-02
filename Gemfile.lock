@@ -34,7 +34,6 @@ GEM
       simpleidn (~> 0.2.1)
     drb (2.2.3)
     em-websocket (0.5.3)
-      base64 (>= 0.2.0)
       eventmachine (>= 0.12.9)
       http_parser.rb (~> 0)
     ethon (0.16.0)
