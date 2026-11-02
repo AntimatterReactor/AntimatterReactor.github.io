@@ -67,10 +67,10 @@ Thesis: a personal site where an absurdist poet and a mobile developer share one
 - **What**: `date_to: xmlschema` isn't a Liquid filter; `datetime` attribute rendered wrong.
 - **Fix**: `date_to_xmlschema`.
 
-### Résumé and Now are empty headings — Medium, Open
+### Résumé and Now are empty headings — Medium, Open (hidden from nav)
 - **What**: "Education", "Experience", "Now", "Uses" with nothing under them. Reads unfinished.
 - **Why**: `writing.md › Best practices`: "Provide clear next steps on any blank screens."
-- **Fix**: fill them, or drop `resume.md` and `now.md` from `header_pages` until filled.
+- **Fix**: removed from `header_pages`. Pages still build at /resume/ and /now/. Add them back once filled.
 
 ### About page copy — Low, Open
 - **What**: fragments ("I'm still a student", "Indonesia"), trailing comma after "Twitter/X". Covered by TODO.md "redesign the textual content".

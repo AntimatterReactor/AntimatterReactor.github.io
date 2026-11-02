@@ -15,8 +15,6 @@ header_pages:
   - index.md
   - projects.md
   - writing.md
-  - resume.md
-  - now.md
   - about.md
 
 # Build settings
