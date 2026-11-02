@@ -1,0 +1,13 @@
+# One entry per project. Rendered on /projects/ in this order.
+# Fields: name (required), summary, platform (e.g. iOS, Android, Flutter, CLI),
+#         stack (list), links (map of label: url), status (e.g. shipped, wip)
+#
+# - name: Example
+#   summary: One sentence on what it does.
+#   platform: iOS, Android
+#   stack: [Flutter, Dart]
+#   status: shipped
+#   links:
+#     App Store: https://apps.apple.com/...
+#     Source: https://github.com/AntimatterReactor/...
+[]
