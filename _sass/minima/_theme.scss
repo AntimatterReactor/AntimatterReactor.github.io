@@ -1,5 +1,9 @@
 // Monsoon palette. Alternatives in PALETTES.md.
-@mixin theme($bg, $surface, $border, $ink, $strong, $muted, $accent, $accent-hover, $signal) {
+@function rgb-list($c) {
+  @return #{red($c)}, #{green($c)}, #{blue($c)};
+}
+
+@mixin theme($bg, $surface, $border, $ink, $strong, $muted, $accent, $accent-hover, $signal, $frame) {
   --bs-body-bg: #{$bg};
   --bs-body-bg-rgb: #{red($bg)}, #{green($bg)}, #{blue($bg)};
   --bs-body-color: #{$ink};
@@ -7,6 +11,7 @@
   --bs-emphasis-color: #{$strong};
   --bs-heading-color: #{$strong};
   --bs-secondary-color: #{$muted};
+  --bs-secondary-rgb: #{rgb-list($muted)};
   --bs-tertiary-bg: #{$surface};
   --bs-secondary-bg: #{$surface};
   --bs-border-color: #{$border};
@@ -15,15 +20,22 @@
   --bs-link-hover-color: #{$accent-hover};
   --bs-link-hover-color-rgb: #{red($accent-hover)}, #{green($accent-hover)}, #{blue($accent-hover)};
   --signal: #{$signal};
+  --frame: #{$frame};
 }
+
+// Text on the frame (footer, top line, overscroll). Same in both modes.
+$frame-ink: #DDE4E2;
+$frame-muted: #9FAFB2;
+$frame-accent: #7FC2BE;
+$frame-accent-hover: #A3D4D1;
 
 :root,
 [data-bs-theme="light"] {
-  @include theme(#EDF0EF, #E1E7E5, #C3CDCB, #1C2629, #0F1719, #56656A, #23656A, #174A4E, #8A500E);
+  @include theme(#F5F7F6, #DFE6E4, #B4C0BE, #1C2629, #0F1719, #56656A, #23656A, #174A4E, #8A500E, #1C2629);
 }
 
 [data-bs-theme="dark"] {
-  @include theme(#111A1D, #1A2528, #2E3C40, #DDE4E2, #F2F5F4, #93A3A6, #73B7B3, #A3D4D1, #E2A955);
+  @include theme(#111A1D, #1D2A2E, #3A4C52, #DDE4E2, #F2F5F4, #93A3A6, #73B7B3, #A3D4D1, #E2A955, #2A3B41);
 }
 
 ::selection {
@@ -45,4 +57,35 @@
   background: var(--bs-body-bg);
   border: 1px solid var(--bs-border-color);
   border-radius: 0.5rem;
+}
+
+// Frame color fills the canvas, so overscroll past either edge
+// continues the top line and the footer.
+html {
+  background-color: var(--frame);
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.page-content {
+  flex: 1 0 auto;
+}
+
+#site-footer {
+  --bs-body-color: #{$frame-ink};
+  --bs-body-color-rgb: #{rgb-list($frame-ink)};
+  --bs-emphasis-color: #{$frame-ink};
+  --bs-secondary-color: #{$frame-muted};
+  --bs-secondary-rgb: #{rgb-list($frame-muted)};
+  --bs-link-color: #{$frame-accent};
+  --bs-link-color-rgb: #{rgb-list($frame-accent)};
+  --bs-link-hover-color: #{$frame-accent-hover};
+  --bs-link-hover-color-rgb: #{rgb-list($frame-accent-hover)};
+  color: var(--bs-body-color);
+  background-color: var(--frame);
+  padding-bottom: 1.5rem;
 }
