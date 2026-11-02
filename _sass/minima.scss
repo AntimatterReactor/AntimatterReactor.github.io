@@ -1,8 +1,8 @@
 @charset "utf-8";
-@import url('https://fonts.googleapis.com/css2?family=Lavishly+Yours&display=swap');
 
 // Define defaults for each variable.
 
+$serif-font-family: "Literata", "New York", Georgia, serif !default;
 $base-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !default;
 $base-font-size:   16px !default;
 $base-font-weight: 400 !default;
@@ -46,6 +46,7 @@ $on-laptop:        800px !default;
 
 // Import partials.
 @import
+  "minima/theme",
   "minima/base",
   "minima/layout",
   "minima/syntax-highlighting",
