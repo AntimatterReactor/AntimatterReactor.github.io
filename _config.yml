@@ -32,13 +32,15 @@ sass:
   sass_dir: _sass
 
 minima_reboot:
-  date_format: "%a, %F"
+  date_format: "%b %-d, %Y"
   date_format_short: "%b %d"
 
 exclude:
   - README.md
   - TODO.md
   - CLAUDE.md
+  - PALETTES.md
+  - REVIEW.md
   - run.sh
   - .sass-cache/
   - .jekyll-cache/

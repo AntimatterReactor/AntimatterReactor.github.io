@@ -5,7 +5,7 @@ layout: default
   Poem layout. Write one verse line per source line; leave a blank line
   between stanzas. No trailing backslashes or double spaces needed.
 {%- endcomment -%}
-<article class="poem" itemscope itemtype="http://schema.org/CreativeWork">
+<article class="poem" lang="{{ page.lang | default: site.lang | default: "en" }}" itemscope itemtype="http://schema.org/CreativeWork">
 
   <header class="pt-4 pb-3">
     <h1 itemprop="name headline">{{ page.title | escape }}</h1>
@@ -21,8 +21,14 @@ layout: default
     {%- assign stanzas = content | split: "</p>" -%}
     {%- for stanza in stanzas -%}
       {%- assign s = stanza | strip -%}
-      {%- if s != "" -%}
-        {{ s | newline_to_br }}</p>
+      {%- if s == "" -%}{%- continue -%}{%- endif -%}
+      {%- assign head = s | slice: 0, 3 -%}
+      {%- if head == "<p>" -%}
+        {%- assign lines = s | remove_first: "<p>" | split: "
+" -%}
+        <p class="stanza">{% for line in lines %}<span class="line">{{ line }}</span>{% endfor %}</p>
+      {%- else -%}
+        {{ s }}
       {%- endif -%}
     {%- endfor -%}
   </div>

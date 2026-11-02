@@ -1,3 +1,4 @@
+<a class="visually-hidden-focusable" href="#content-main">Skip to content</a>
 <header id="site-header" class="site-header" role="banner">
   <div class="container-xl d-flex align-items-center px-3">
     {%- assign default_paths = site.pages | map: "path" -%}
@@ -6,8 +7,8 @@
 
     {%- if page_paths -%}
       <nav class="site-nav" aria-label="Main">
-        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
-        <label for="nav-trigger" aria-label="Menu">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" aria-label="Menu" />
+        <label for="nav-trigger" aria-hidden="true">
           <span class="menu-icon"><i class="bi bi-list" aria-hidden="true"></i></span>
         </label>
 

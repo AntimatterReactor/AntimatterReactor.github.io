@@ -1,4 +1,19 @@
-.poem-body p {
-  text-align: left;
-  margin-bottom: 1.5em;
+.poem-body,
+.post-body {
+  font-family: $serif-font-family;
+  font-size: 1.0625rem;
+  line-height: 1.7;
+}
+
+.poem-body {
+  .stanza {
+    margin-bottom: 1.5em;
+  }
+
+  // Wrapped lines hang under the first word so they read as one verse line.
+  .line {
+    display: block;
+    padding-left: 1.5em;
+    text-indent: -1.5em;
+  }
 }

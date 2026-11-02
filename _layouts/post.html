@@ -16,7 +16,7 @@ layout: default
         {% endif %}
         &bull;
       {% endif %}
-      <time datetime="{{ page.date | date_to: xmlschema }}" itemprop="datePublished">
+      <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
         <i class="bi-calendar-check"></i>&nbsp;
         {% assign date_format = site.minima_reboot.date_format | default: "%b %-d, %Y" %}
         {{ page.date | date: date_format }}
@@ -32,7 +32,7 @@ layout: default
     </p>
   </header>
 
-  <div class="text-justify" itemprop="articleBody" id="content">
+  <div class="post-body" itemprop="articleBody" id="content">
     {{ content }}
   </div>
 

@@ -44,9 +44,23 @@
   }
 
   @include media-query($on-palm) {
+    .nav-trigger {
+      display: block;
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      opacity: 0;
+    }
+
     label[for="nav-trigger"] {
       display: block;
       cursor: pointer;
+      border-radius: 50%;
+    }
+
+    .nav-trigger:focus-visible + label {
+      outline: 2px solid var(--bs-link-color);
+      outline-offset: 2px;
     }
 
     .menu-icon {
@@ -261,4 +275,52 @@
       @include relative-font-size(1.125);
     }
   }
+}
+
+/**
+ * Home epigraph
+ */
+.epigraph {
+  margin: $spacing-unit 0;
+
+  blockquote {
+    margin: 0;
+    padding-left: 1rem;
+    letter-spacing: normal;
+    border-left: 3px solid var(--bs-link-color);
+    font-family: $serif-font-family;
+    font-size: 1.125rem;
+    font-style: italic;
+    color: var(--bs-body-color);
+  }
+
+  figcaption {
+    margin-top: 0.5rem;
+    padding-left: 1rem;
+    color: var(--bs-secondary-color);
+    font-size: $small-font-size;
+  }
+}
+
+/**
+ * 404
+ */
+.not-found {
+  margin: $spacing-unit * 2 auto;
+  max-width: 600px;
+  text-align: center;
+
+  h1 {
+    font-size: 4rem;
+    line-height: 1;
+    margin-bottom: 1rem;
+  }
+}
+
+.status {
+  color: var(--signal);
+}
+
+.list-unstyled {
+  margin-left: 0;
 }
