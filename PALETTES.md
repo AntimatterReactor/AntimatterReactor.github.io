@@ -2,7 +2,7 @@
 
 Contrast ratios against `bg`. All text and accent tokens meet WCAG AA (4.5:1).
 
-## Monsoon (in use)
+## Monsoon
 
 Rain slate, teal, street-lamp amber. From *Hujan*.
 
@@ -33,7 +33,7 @@ Indigo wedel, sogan brown. Javanese batik.
 | accent | `#7A4A1E` (6.5) | `#D49A5E` (7.2) |
 | signal | `#2E4C8C` (7.3) | `#8FAEE8` (7.9) |
 
-## Handheld
+## Handheld (in use)
 
 Olive LCD greens, brick red. Early handheld consoles.
 
@@ -44,5 +44,23 @@ Olive LCD greens, brick red. Early handheld consoles.
 | muted | `#55604A` (5.5) | `#9AA68C` (6.9) |
 | accent | `#3E6B1F` (5.2) | `#A7C46A` (9.1) |
 | signal | `#8C3B2E` (6.3) | `#E08A74` (6.8) |
+
+Handheld as deployed, full tokens:
+
+| Token | Light | Dark |
+| --- | --- | --- |
+| bg | `#E8EBDF` | `#141A12` |
+| surface | `#DCE1CF` | `#1E271B` |
+| border | `#A9B496` | `#3A4733` |
+| ink | `#1F2A1A` (12.4) | `#DCE3CF` (13.4) |
+| strong | `#121A0E` (14.7) | `#EEF2E6` (15.6) |
+| muted | `#4F5A44` (6.0) | `#9AA68C` (6.9) |
+| accent | `#3B661D` (5.6) | `#A7C46A` (9.1) |
+| accent-hover | `#2A4A14` (8.3) | `#C6DC93` (11.9) |
+| signal | `#8C3B2E` (6.3) | `#E08A74` (6.8) |
+| frame | `#4E5D39` | `#22301C` |
+| frame ink | `#F1F4EA` (6.4) | `#DCE3CF` (10.6) |
+| frame muted | `#D2DABF` (4.9) | `#9AA68C` (5.4) |
+| frame accent | `#DDEFAE` (5.8) | `#A7C46A` (7.1) |
 
 Swap palettes in `_sass/minima/_theme.scss`.

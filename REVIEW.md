@@ -1,4 +1,6 @@
-# Design review: Factual Obelisk
+# Design review: Factual Obelisk (now Across)
+
+Historical. Reviews now use [frontend-design](https://github.com/anthropics/skills/tree/main/skills/frontend-design); palette is Handheld, not Monsoon.
 
 Reviewed 2026-11-02 against Apple's Human Interface Guidelines via [apple-design-skill](https://github.com/dickwu/apple-design-skill). Web site, so principles and foundations apply (accessibility, color, typography, layout, writing); Apple platform conventions don't. Checked at 1280 and 375 px, light and dark.
 
