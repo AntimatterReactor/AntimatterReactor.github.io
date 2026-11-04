@@ -1,29 +1,49 @@
-// Monsoon palette. Alternatives in PALETTES.md.
+@function rgb-list($c) {
+  @return #{red($c)}, #{green($c)}, #{blue($c)};
+}
+
+// Handheld palette. Alternatives in PALETTES.md.
 @mixin theme($bg, $surface, $border, $ink, $strong, $muted, $accent, $accent-hover, $signal) {
   --bs-body-bg: #{$bg};
-  --bs-body-bg-rgb: #{red($bg)}, #{green($bg)}, #{blue($bg)};
+  --bs-body-bg-rgb: #{rgb-list($bg)};
   --bs-body-color: #{$ink};
-  --bs-body-color-rgb: #{red($ink)}, #{green($ink)}, #{blue($ink)};
+  --bs-body-color-rgb: #{rgb-list($ink)};
   --bs-emphasis-color: #{$strong};
   --bs-heading-color: #{$strong};
   --bs-secondary-color: #{$muted};
+  --bs-secondary-rgb: #{rgb-list($muted)};
   --bs-tertiary-bg: #{$surface};
   --bs-secondary-bg: #{$surface};
   --bs-border-color: #{$border};
   --bs-link-color: #{$accent};
-  --bs-link-color-rgb: #{red($accent)}, #{green($accent)}, #{blue($accent)};
+  --bs-link-color-rgb: #{rgb-list($accent)};
   --bs-link-hover-color: #{$accent-hover};
-  --bs-link-hover-color-rgb: #{red($accent-hover)}, #{green($accent-hover)}, #{blue($accent-hover)};
+  --bs-link-hover-color-rgb: #{rgb-list($accent-hover)};
   --signal: #{$signal};
+}
+
+// Frame: top line, footer, canvas (overscroll), and the text on it.
+@mixin frame($frame, $ink, $muted, $accent, $accent-hover) {
+  --frame: #{$frame};
+  --frame-ink: #{$ink};
+  --frame-ink-rgb: #{rgb-list($ink)};
+  --frame-muted: #{$muted};
+  --frame-muted-rgb: #{rgb-list($muted)};
+  --frame-accent: #{$accent};
+  --frame-accent-rgb: #{rgb-list($accent)};
+  --frame-accent-hover: #{$accent-hover};
+  --frame-accent-hover-rgb: #{rgb-list($accent-hover)};
 }
 
 :root,
 [data-bs-theme="light"] {
-  @include theme(#EDF0EF, #E1E7E5, #C3CDCB, #1C2629, #0F1719, #56656A, #23656A, #174A4E, #8A500E);
+  @include theme(#E8EBDF, #DCE1CF, #A9B496, #1F2A1A, #121A0E, #4F5A44, #3B661D, #2A4A14, #8C3B2E);
+  @include frame(#4E5D39, #F1F4EA, #D2DABF, #DDEFAE, #FFFFFF);
 }
 
 [data-bs-theme="dark"] {
-  @include theme(#111A1D, #1A2528, #2E3C40, #DDE4E2, #F2F5F4, #93A3A6, #73B7B3, #A3D4D1, #E2A955);
+  @include theme(#141A12, #1E271B, #3A4733, #DCE3CF, #EEF2E6, #9AA68C, #A7C46A, #C6DC93, #E08A74);
+  @include frame(#22301C, #DCE3CF, #9AA68C, #A7C46A, #C6DC93);
 }
 
 ::selection {
@@ -45,4 +65,35 @@
   background: var(--bs-body-bg);
   border: 1px solid var(--bs-border-color);
   border-radius: 0.5rem;
+}
+
+// Frame color fills the canvas, so overscroll past either edge
+// continues the top line and the footer.
+html {
+  background-color: var(--frame);
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.page-content {
+  flex: 1 0 auto;
+}
+
+#site-footer {
+  --bs-body-color: var(--frame-ink);
+  --bs-body-color-rgb: var(--frame-ink-rgb);
+  --bs-emphasis-color: var(--frame-ink);
+  --bs-secondary-color: var(--frame-muted);
+  --bs-secondary-rgb: var(--frame-muted-rgb);
+  --bs-link-color: var(--frame-accent);
+  --bs-link-color-rgb: var(--frame-accent-rgb);
+  --bs-link-hover-color: var(--frame-accent-hover);
+  --bs-link-hover-color-rgb: var(--frame-accent-hover-rgb);
+  color: var(--bs-body-color);
+  background-color: var(--frame);
+  padding-bottom: 1.5rem;
 }

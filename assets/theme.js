@@ -4,6 +4,7 @@
   if (!button) return;
   var icon = button.querySelector("i");
   var media = matchMedia("(prefers-color-scheme: dark)");
+  var themeColor = document.querySelector('meta[name="theme-color"]');
 
   function stored() {
     try { return localStorage.getItem("theme"); } catch (e) { return null; }
@@ -15,6 +16,9 @@
     icon.className = theme === "dark" ? "bi bi-moon-stars" : "bi bi-sun";
     button.setAttribute("aria-label", "Switch to " + next + " mode");
     button.title = "Switch to " + next + " mode";
+    if (themeColor) {
+      themeColor.content = getComputedStyle(root).getPropertyValue("--frame").trim();
+    }
   }
 
   apply(root.getAttribute("data-bs-theme") || "light");

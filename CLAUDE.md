@@ -12,5 +12,14 @@
 - Poems: `layout: poem` in front matter. One verse line per source line, blank line between stanzas.
 - Projects: edit `_data/projects.yml`.
 - Nav order: `header_pages` in `_config.yml`.
-- Colors: Monsoon tokens in `_sass/minima/_theme.scss`; alternatives in PALETTES.md.
+- Colors: Handheld tokens in `_sass/minima/_theme.scss` (`theme` and `frame` mixins per mode); alternatives in PALETTES.md. `--frame` colors top line, footer, and canvas (overscroll); footer reads `--frame-*` text tokens.
+- Theme: `data-bs-theme` on `<html>`, set inline in `head.html` before paint, toggled by `assets/theme.js`.
+- Design skill: frontend-design (github.com/anthropics/skills/tree/main/skills/frontend-design). REVIEW.md is an older apple-design-skill review, kept for history.
+- Wordmark: Jacquard 24 at 48px (24px grid), `.site-title` in `_layout.scss`, loaded in `head.html`.
+- Home: oracle line, random poem line from inline JSON built in `_layouts/home.html`, picked by `assets/oracle.js`.
+- Writing: tile grid; All/Posts/Poems filter is CSS-only via `:has()` and `data-has-post`/`data-has-poem` on year groups.
+- Sass is old Ruby Sass (github-pages): no `:not(:has())` (mangled), wrap `clamp()`/`min()` math in `unquote()`. Never search for `}` to find block ends in SCSS (`#{}` interpolation).
+- Local build needs a UTF-8 locale: `LANG=C.UTF-8 ./run.sh`.
+- Avoid Bootstrap class names for custom components (`.page-link` clashed with pagination).
+- Decided against: custom JS rubber-band overscroll (Safari already native; scroll-jacking).
 - Repo-only files (README.md, TODO.md, CLAUDE.md, PALETTES.md, REVIEW.md) are excluded from the build.
