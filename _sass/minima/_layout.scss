@@ -324,3 +324,219 @@
 .list-unstyled {
   margin-left: 0;
 }
+
+/**
+ * Home: oracle line
+ */
+.oracle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 52vh;
+  padding: $spacing-unit * 1.5 0;
+}
+
+.oracle-line {
+  margin-bottom: 1rem;
+  font-family: $serif-font-family;
+  font-size: unquote("clamp(1.75rem, 1rem + 3.2vw, 3.25rem)");
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--bs-emphasis-color);
+  text-wrap: balance;
+  max-width: 24ch;
+
+  &.is-shown {
+    animation: oracle-in 1.6s ease-out both;
+  }
+}
+
+@keyframes oracle-in {
+  from {
+    opacity: 0;
+    filter: blur(6px);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+.oracle-source {
+  margin-bottom: 1.5rem;
+  color: var(--bs-secondary-color);
+}
+
+.oracle-next {
+  align-self: flex-start;
+  min-height: 44px;
+  padding: 0 1.1rem;
+  color: var(--bs-body-color);
+  background: transparent;
+  border: 1px solid var(--bs-border-color);
+  border-radius: 2px;
+
+  &:hover {
+    border-color: var(--bs-link-color);
+    color: var(--bs-link-color);
+  }
+}
+
+.latest {
+  margin-bottom: $spacing-unit;
+}
+
+.latest-list li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  column-gap: 1rem;
+  padding: 0.35rem 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .oracle-line.is-shown {
+    animation: none;
+  }
+}
+
+/**
+ * Writing: filter and tiles
+ */
+.filter {
+  display: inline-flex;
+  margin-bottom: $spacing-unit;
+  border: 1px solid var(--bs-border-color);
+  border-radius: 2px;
+
+  input {
+    position: absolute;
+    opacity: 0;
+    width: 1px;
+    height: 1px;
+  }
+
+  label {
+    display: flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 0 1.1rem;
+    cursor: pointer;
+    color: var(--bs-body-color);
+  }
+
+  label + input + label {
+    border-left: 1px solid var(--bs-border-color);
+  }
+
+  input:checked + label {
+    color: var(--bs-body-bg);
+    background-color: var(--bs-link-color);
+  }
+
+  input:focus-visible + label {
+    outline: 2px solid var(--bs-link-color);
+    outline-offset: 2px;
+  }
+}
+
+.year-group {
+  margin-bottom: $spacing-unit * 1.5;
+}
+
+.year-heading {
+  @include relative-font-size(1.25);
+  color: var(--bs-secondary-color);
+  font-weight: 400;
+  margin-bottom: 0.75rem;
+}
+
+.tiles {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+  gap: 1rem;
+  margin: 0;
+}
+
+.tile-link {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  height: 100%;
+  padding: 1rem 1.1rem 0.9rem;
+  color: var(--bs-body-color);
+  border: 1px solid var(--bs-border-color);
+  border-radius: 2px;
+
+  &:visited {
+    color: var(--bs-body-color);
+  }
+
+  &:hover {
+    color: var(--bs-body-color);
+    text-decoration: none;
+    border-color: var(--bs-link-color);
+    background-color: var(--bs-tertiary-bg);
+
+    .tile-title {
+      color: var(--bs-link-color);
+    }
+  }
+}
+
+.tile-head {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  color: var(--bs-secondary-color);
+}
+
+.tile-title {
+  @include relative-font-size(1.125);
+  color: var(--bs-emphasis-color);
+  font-weight: 600;
+}
+
+.tile-preview {
+  flex: 1;
+  line-height: 1.45;
+}
+
+.tile-preview-poem {
+  font-family: $serif-font-family;
+  font-style: italic;
+}
+
+.tile-date {
+  color: var(--bs-secondary-color);
+  font-size: $small-font-size;
+}
+
+.writing:has(#filter-post:checked) {
+  .tile[data-type="poem"],
+  .year-group:not([data-has-post]) {
+    display: none;
+  }
+}
+
+.writing:has(#filter-poem:checked) {
+  .tile[data-type="post"],
+  .year-group:not([data-has-poem]) {
+    display: none;
+  }
+}
+
+.filter-empty {
+  display: none;
+
+  label {
+    color: var(--bs-link-color);
+    cursor: pointer;
+    text-decoration: underline;
+  }
+}
+
+.writing:has(#filter-post:checked) .filter-empty[data-for="post"],
+.writing:has(#filter-poem:checked) .filter-empty[data-for="poem"] {
+  display: block;
+}
