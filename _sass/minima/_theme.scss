@@ -1,13 +1,13 @@
-// Monsoon palette. Alternatives in PALETTES.md.
 @function rgb-list($c) {
   @return #{red($c)}, #{green($c)}, #{blue($c)};
 }
 
-@mixin theme($bg, $surface, $border, $ink, $strong, $muted, $accent, $accent-hover, $signal, $frame) {
+// Handheld palette. Alternatives in PALETTES.md.
+@mixin theme($bg, $surface, $border, $ink, $strong, $muted, $accent, $accent-hover, $signal) {
   --bs-body-bg: #{$bg};
-  --bs-body-bg-rgb: #{red($bg)}, #{green($bg)}, #{blue($bg)};
+  --bs-body-bg-rgb: #{rgb-list($bg)};
   --bs-body-color: #{$ink};
-  --bs-body-color-rgb: #{red($ink)}, #{green($ink)}, #{blue($ink)};
+  --bs-body-color-rgb: #{rgb-list($ink)};
   --bs-emphasis-color: #{$strong};
   --bs-heading-color: #{$strong};
   --bs-secondary-color: #{$muted};
@@ -16,26 +16,34 @@
   --bs-secondary-bg: #{$surface};
   --bs-border-color: #{$border};
   --bs-link-color: #{$accent};
-  --bs-link-color-rgb: #{red($accent)}, #{green($accent)}, #{blue($accent)};
+  --bs-link-color-rgb: #{rgb-list($accent)};
   --bs-link-hover-color: #{$accent-hover};
-  --bs-link-hover-color-rgb: #{red($accent-hover)}, #{green($accent-hover)}, #{blue($accent-hover)};
+  --bs-link-hover-color-rgb: #{rgb-list($accent-hover)};
   --signal: #{$signal};
-  --frame: #{$frame};
 }
 
-// Text on the frame (footer, top line, overscroll). Same in both modes.
-$frame-ink: #DDE4E2;
-$frame-muted: #9FAFB2;
-$frame-accent: #7FC2BE;
-$frame-accent-hover: #A3D4D1;
+// Frame: top line, footer, canvas (overscroll), and the text on it.
+@mixin frame($frame, $ink, $muted, $accent, $accent-hover) {
+  --frame: #{$frame};
+  --frame-ink: #{$ink};
+  --frame-ink-rgb: #{rgb-list($ink)};
+  --frame-muted: #{$muted};
+  --frame-muted-rgb: #{rgb-list($muted)};
+  --frame-accent: #{$accent};
+  --frame-accent-rgb: #{rgb-list($accent)};
+  --frame-accent-hover: #{$accent-hover};
+  --frame-accent-hover-rgb: #{rgb-list($accent-hover)};
+}
 
 :root,
 [data-bs-theme="light"] {
-  @include theme(#F5F7F6, #DFE6E4, #B4C0BE, #1C2629, #0F1719, #56656A, #23656A, #174A4E, #8A500E, #1C2629);
+  @include theme(#E8EBDF, #DCE1CF, #A9B496, #1F2A1A, #121A0E, #4F5A44, #3B661D, #2A4A14, #8C3B2E);
+  @include frame(#4E5D39, #F1F4EA, #D2DABF, #DDEFAE, #FFFFFF);
 }
 
 [data-bs-theme="dark"] {
-  @include theme(#111A1D, #1D2A2E, #3A4C52, #DDE4E2, #F2F5F4, #93A3A6, #73B7B3, #A3D4D1, #E2A955, #2A3B41);
+  @include theme(#141A12, #1E271B, #3A4733, #DCE3CF, #EEF2E6, #9AA68C, #A7C46A, #C6DC93, #E08A74);
+  @include frame(#22301C, #DCE3CF, #9AA68C, #A7C46A, #C6DC93);
 }
 
 ::selection {
@@ -76,15 +84,15 @@ body {
 }
 
 #site-footer {
-  --bs-body-color: #{$frame-ink};
-  --bs-body-color-rgb: #{rgb-list($frame-ink)};
-  --bs-emphasis-color: #{$frame-ink};
-  --bs-secondary-color: #{$frame-muted};
-  --bs-secondary-rgb: #{rgb-list($frame-muted)};
-  --bs-link-color: #{$frame-accent};
-  --bs-link-color-rgb: #{rgb-list($frame-accent)};
-  --bs-link-hover-color: #{$frame-accent-hover};
-  --bs-link-hover-color-rgb: #{rgb-list($frame-accent-hover)};
+  --bs-body-color: var(--frame-ink);
+  --bs-body-color-rgb: var(--frame-ink-rgb);
+  --bs-emphasis-color: var(--frame-ink);
+  --bs-secondary-color: var(--frame-muted);
+  --bs-secondary-rgb: var(--frame-muted-rgb);
+  --bs-link-color: var(--frame-accent);
+  --bs-link-color-rgb: var(--frame-accent-rgb);
+  --bs-link-hover-color: var(--frame-accent-hover);
+  --bs-link-hover-color-rgb: var(--frame-accent-hover-rgb);
   color: var(--bs-body-color);
   background-color: var(--frame);
   padding-bottom: 1.5rem;
