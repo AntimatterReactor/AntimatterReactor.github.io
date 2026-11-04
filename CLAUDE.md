@@ -15,6 +15,7 @@
 - Colors: Handheld tokens in `_sass/minima/_theme.scss` (`theme` and `frame` mixins per mode); alternatives in PALETTES.md. `--frame` colors top line, footer, and canvas (overscroll); footer reads `--frame-*` text tokens.
 - Theme: `data-bs-theme` on `<html>`, set inline in `head.html` before paint, toggled by `assets/theme.js`.
 - Design skill: frontend-design (github.com/anthropics/skills/tree/main/skills/frontend-design). REVIEW.md is an older apple-design-skill review, kept for history.
+- Wordmark: Jacquard 24 at 48px (24px grid), `.site-title` in `_layout.scss`, loaded in `head.html`.
 - Home: oracle line, random poem line from inline JSON built in `_layouts/home.html`, picked by `assets/oracle.js`.
 - Writing: tile grid; All/Posts/Poems filter is CSS-only via `:has()` and `data-has-post`/`data-has-poem` on year groups.
 - Sass is old Ruby Sass (github-pages): no `:not(:has())` (mangled), wrap `clamp()`/`min()` math in `unquote()`. Never search for `}` to find block ends in SCSS (`#{}` interpolation).
