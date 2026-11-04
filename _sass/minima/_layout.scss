@@ -517,3 +517,73 @@
 .writing:has(#filter-poem:checked) .filter-empty[data-for="poem"] {
   display: block;
 }
+
+/**
+ * Poem series
+ */
+.series-crumb {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+  color: var(--bs-secondary-color);
+}
+
+.series {
+  margin-top: $spacing-unit * 1.5;
+  padding-top: $spacing-unit;
+  border-top: 1px solid var(--bs-border-color);
+}
+
+.series-step {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: $spacing-unit;
+
+  a {
+    display: flex;
+    flex-direction: column;
+    min-height: 44px;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--bs-border-color);
+    border-radius: 2px;
+
+    &:hover {
+      text-decoration: none;
+      border-color: var(--bs-link-color);
+    }
+
+    span {
+      font-size: $small-font-size;
+    }
+  }
+
+  .series-next {
+    grid-column: 2;
+    text-align: right;
+  }
+}
+
+.series-heading {
+  @include relative-font-size(1.125);
+  margin-bottom: 0.75rem;
+}
+
+.series-list {
+  margin-left: 1.5rem;
+
+  li {
+    padding: 0.2rem 0;
+  }
+
+  [aria-current="page"] {
+    font-weight: 600;
+    color: var(--bs-emphasis-color);
+  }
+}
+
+.tile-series {
+  color: var(--bs-secondary-color);
+  font-size: $small-font-size;
+}

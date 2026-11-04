@@ -7,7 +7,15 @@ layout: default
 {%- endcomment -%}
 <article class="poem" lang="{{ page.lang | default: site.lang | default: "en" }}" itemscope itemtype="http://schema.org/CreativeWork">
 
+  {%- include series.html post=page -%}
   <header class="pt-4 pb-3">
+    {%- if page.series_child and series_parent -%}
+    <nav class="series-crumb" aria-label="Series">
+      <a href="{{ series_parent.url | relative_url }}">{{ series_parent.title | escape }}</a>
+      <span aria-hidden="true">/</span>
+      <span>Part {{ series_index }} of {{ series_parts.size }}</span>
+    </nav>
+    {%- endif -%}
     <h1 itemprop="name headline">{{ page.title | escape }}</h1>
     <p class="text-secondary">
       <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
@@ -32,5 +40,37 @@ layout: default
       {%- endif -%}
     {%- endfor -%}
   </div>
+
+  {%- if series_parts.size > 0 -%}
+  <footer class="series">
+    {%- if page.series_child -%}
+      {%- assign prev_i = series_index | minus: 2 -%}
+      {%- assign next_i = series_index -%}
+      <nav class="series-step" aria-label="Parts">
+        {%- if prev_i >= 0 -%}
+          {%- assign prev = series_parts[prev_i] -%}
+          <a class="series-prev" href="{{ prev.url | relative_url }}" rel="prev"><span class="text-secondary">Previous</span>{{ prev.title | escape }}</a>
+        {%- endif -%}
+        {%- if next_i < series_parts.size -%}
+          {%- assign next = series_parts[next_i] -%}
+          <a class="series-next" href="{{ next.url | relative_url }}" rel="next"><span class="text-secondary">Next</span>{{ next.title | escape }}</a>
+        {%- endif -%}
+      </nav>
+    {%- endif -%}
+
+    <h2 class="series-heading">{% if page.series_child %}Parts of {{ series_parent.title | escape }}{% else %}Parts{% endif %}</h2>
+    <ol class="series-list">
+      {%- for p in series_parts -%}
+      <li>
+        {%- if p.url == page.url -%}
+          <span aria-current="page">{{ p.title | escape }}</span>
+        {%- else -%}
+          <a href="{{ p.url | relative_url }}">{{ p.title | escape }}</a>
+        {%- endif -%}
+      </li>
+      {%- endfor -%}
+    </ol>
+  </footer>
+  {%- endif -%}
 
 </article>

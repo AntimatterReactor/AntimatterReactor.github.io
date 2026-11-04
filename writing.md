@@ -4,7 +4,9 @@ title: Writing
 permalink: /writing/
 redirect_from: /posts/
 ---
-{%- assign years = site.posts | group_by_exp: "p", "p.date | date: '%Y'" -%}
+{%- assign listed = site.posts | where_exp: "p", "p.series_child != true" -%}
+{%- assign children = site.posts | where_exp: "p", "p.series_child == true" -%}
+{%- assign years = listed | group_by_exp: "p", "p.date | date: '%Y'" -%}
 <div class="writing">
   <fieldset class="filter">
     <legend class="visually-hidden">Show</legend>
@@ -16,8 +18,8 @@ redirect_from: /posts/
     <label for="filter-poem">Poems</label>
   </fieldset>
 
-  {%- assign poem_count = site.posts | where: "layout", "poem" | size -%}
-  {%- assign post_count = site.posts.size | minus: poem_count -%}
+  {%- assign poem_count = listed | where: "layout", "poem" | size -%}
+  {%- assign post_count = listed.size | minus: poem_count -%}
   {%- if post_count == 0 -%}<p class="filter-empty" data-for="post">No posts yet. <label for="filter-poem">Read the poems</label>.</p>{%- endif -%}
   {%- if poem_count == 0 -%}<p class="filter-empty" data-for="poem">No poems yet. <label for="filter-post">Read the posts</label>.</p>{%- endif -%}
 
@@ -43,6 +45,10 @@ redirect_from: /posts/
             <span class="tile-title">{{ post.title | escape }}</span>
           </span>
           <span class="tile-preview tile-preview-{{ type }}">{{ preview }}</span>
+          {%- assign part_count = children | where_exp: "p", "p.categories contains post.slug" | size -%}
+          {%- if part_count > 0 -%}
+          <span class="tile-series"><i class="bi bi-stack" aria-hidden="true"></i> Series of {{ part_count }} part{% if part_count > 1 %}s{% endif %}</span>
+          {%- endif -%}
           <time class="tile-date" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %-d" }}</time>
         </a>
       </li>

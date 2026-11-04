@@ -40,6 +40,11 @@ layout: default
         {%- for post in site.posts limit: 5 -%}
         <li>
           <a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
+          {%- if post.series_child -%}
+            {%- assign parent_slug = post.categories[1] -%}
+            {%- assign parent = site.posts | where: "slug", parent_slug | where_exp: "p", "p.series_child != true" | first -%}
+            {%- if parent %} <span class="text-secondary">in {{ parent.title | escape }}</span>{% endif -%}
+          {%- endif -%}
           <time class="text-secondary" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: site.minima_reboot.date_format }}</time>
         </li>
         {%- endfor -%}

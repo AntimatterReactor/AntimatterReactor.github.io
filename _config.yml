@@ -17,6 +17,16 @@ header_pages:
   - writing.md
   - about.md
 
+defaults:
+  # Series parts: poem/<parent-slug>/_posts/YYYY-MM-DD-slug.md
+  - scope:
+      path: "poem"
+      type: "posts"
+    values:
+      layout: poem
+      series_child: true
+      permalink: /:categories/:title/
+
 # Build settings
 # theme: minima
 # remote_theme: aterenin/minima-reboot

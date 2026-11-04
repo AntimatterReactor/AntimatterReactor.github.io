@@ -10,6 +10,7 @@
 - Jekyll site on GitHub Pages (`github-pages` gem), customised minima layouts + Bootstrap.
 - Serve locally: `./run.sh`.
 - Poems: `layout: poem` in front matter. One verse line per source line, blank line between stanzas.
+- Poem series: parts go in `poem/<parent-slug>/_posts/YYYY-MM-DD-slug.md` with `title` and `part: N`. `_config.yml` defaults give them `layout: poem`, `series_child: true`, URL `/poem/<parent-slug>/<slug>/`. Parent slug comes from the folder (`categories[1]`). `_includes/series.html` resolves parent, parts, index. Parts are hidden from the Writing grid; the parent tile shows the part count.
 - Projects: edit `_data/projects.yml`.
 - Nav order: `header_pages` in `_config.yml`.
 - Colors: Handheld tokens in `_sass/minima/_theme.scss` (`theme` and `frame` mixins per mode); alternatives in PALETTES.md. `--frame` colors top line, footer, and canvas (overscroll); footer reads `--frame-*` text tokens.
