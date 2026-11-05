@@ -1,0 +1,16 @@
+{%- comment -%}
+  Sets series_slug, series_parent, series_parts, series_index (1-based, 0 if parent)
+  for the post passed as include.post.
+{%- endcomment -%}
+{%- assign sp = include.post -%}
+{%- if sp.series_child -%}
+  {%- assign series_slug = sp.categories[1] -%}
+{%- else -%}
+  {%- assign series_slug = sp.slug -%}
+{%- endif -%}
+{%- assign series_parts = site.posts | where_exp: "p", "p.series_child == true" | where_exp: "p", "p.categories contains series_slug" | sort: "part" -%}
+{%- assign series_parent = site.posts | where: "slug", series_slug | where_exp: "p", "p.series_child != true" | first -%}
+{%- assign series_index = 0 -%}
+{%- for p in series_parts -%}
+  {%- if p.url == sp.url -%}{%- assign series_index = forloop.index -%}{%- endif -%}
+{%- endfor -%}
