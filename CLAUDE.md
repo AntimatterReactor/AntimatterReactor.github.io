@@ -21,6 +21,8 @@
 - Writing: tile grid; All/Posts/Poems filter is CSS-only via `:has()` and `data-has-post`/`data-has-poem` on year groups.
 - Sass is old Ruby Sass (github-pages): no `:not(:has())` (mangled), wrap `clamp()`/`min()` math in `unquote()`. Never search for `}` to find block ends in SCSS (`#{}` interpolation).
 - Local build needs a UTF-8 locale: `LANG=C.UTF-8 ./run.sh`.
+- `.githooks/pre-commit` blocks staged files over 1 MB (`MAX_FILE_BYTES` overrides). Enable per clone: `git config core.hooksPath .githooks`.
+- Icons: `favicon.ico` (16/32/48), `assets/apple-touch-icon.png` (180), `assets/icon-512.png`, linked in `head.html`. Keep images quantized/optimized.
 - Avoid Bootstrap class names for custom components (`.page-link` clashed with pagination).
 - Decided against: custom JS rubber-band overscroll (Safari already native; scroll-jacking).
 - Repo-only files (README.md, TODO.md, CLAUDE.md, PALETTES.md, REVIEW.md) are excluded from the build.

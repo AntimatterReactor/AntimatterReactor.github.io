@@ -9,6 +9,14 @@ bundle install
 ./run.sh
 ```
 
+## Hooks
+
+Enable once per clone. Blocks commits with files over 1 MB.
+
+```bash
+git config core.hooksPath .githooks
+```
+
 ## Layout
 
 - `_posts/`: posts and poems (`layout: poem` for verse)
