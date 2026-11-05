@@ -12,6 +12,7 @@
 - Poems: `layout: poem` in front matter. One verse line per source line, blank line between stanzas.
 - Poem series: parts go in `poem/<parent-slug>/_posts/YYYY-MM-DD-slug.md` with `title` and `part: N`. `_config.yml` defaults give them `layout: poem`, `series_child: true`, URL `/poem/<parent-slug>/<slug>/`. Parent slug comes from the folder (`categories[1]`). `_includes/series.html` resolves parent, parts, index. Parts are hidden from the Writing grid; the parent tile shows the part count.
 - Projects: edit `_data/projects.yml`.
+- Tools: collection `_tools/<name>.html` (front matter `title`, `summary`, `icon` (Bootstrap Icons class), `order`, `random: true` to load `assets/tools/random.js`). Layout `tool` loads `assets/tools/<name>.js`. URL `/tools/<name>/`; `tools.md` lists them. Randomness: `AcrossRandom.int/shuffle/uniqueInts` (crypto, rejection sampling). Results go in an `<output class="readout">` (LCD panel).
 - Nav order: `header_pages` in `_config.yml`.
 - Colors: Handheld tokens in `_sass/minima/_theme.scss` (`theme` and `frame` mixins per mode); alternatives in PALETTES.md. `--frame` colors top line, footer, and canvas (overscroll); footer reads `--frame-*` text tokens.
 - Theme: `data-bs-theme` on `<html>`, set inline in `head.html` before paint, toggled by `assets/theme.js`.

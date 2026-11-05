@@ -1,0 +1,33 @@
+---
+title: Dice
+summary: Roll dice in standard notation, like 2d6+3.
+icon: bi-dice-5
+order: 2
+random: true
+---
+<form class="tool-form" id="dice-form" novalidate>
+  <div class="field field-wide">
+    <label for="dice-input">Dice</label>
+    <input id="dice-input" type="text" value="2d6" inputmode="text" autocomplete="off" spellcheck="false" aria-describedby="dice-hint">
+    <small id="dice-hint" class="text-secondary">Combine terms with + and −, e.g. 1d20+5 or 3d6-1d4.</small>
+  </div>
+  <div class="tool-actions">
+    <button type="submit" class="tool-button">Roll</button>
+    <div class="dice-quick" role="group" aria-label="Quick roll">
+      <button type="button" data-dice="1d4">d4</button>
+      <button type="button" data-dice="1d6">d6</button>
+      <button type="button" data-dice="1d8">d8</button>
+      <button type="button" data-dice="1d10">d10</button>
+      <button type="button" data-dice="1d12">d12</button>
+      <button type="button" data-dice="1d20">d20</button>
+      <button type="button" data-dice="1d100">d100</button>
+    </div>
+  </div>
+  <p class="tool-error" id="dice-error" role="alert"></p>
+</form>
+
+<output class="readout" id="dice-out" aria-live="polite"></output>
+<p class="readout-detail text-secondary" id="dice-detail"></p>
+
+<h2 class="tool-subheading" id="dice-history-heading" hidden>Earlier rolls</h2>
+<ol class="dice-history" id="dice-history" reversed></ol>

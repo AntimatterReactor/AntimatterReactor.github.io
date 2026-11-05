@@ -15,9 +15,20 @@ header_pages:
   - index.md
   - projects.md
   - writing.md
+  - tools.md
   - about.md
 
+collections:
+  tools:
+    output: true
+    permalink: /tools/:name/
+
 defaults:
+  - scope:
+      path: ""
+      type: "tools"
+    values:
+      layout: tool
   # Series parts: poem/<parent-slug>/_posts/YYYY-MM-DD-slug.md
   - scope:
       path: "poem"

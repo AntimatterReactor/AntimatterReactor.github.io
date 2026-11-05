@@ -22,6 +22,7 @@ git config core.hooksPath .githooks
 - `_posts/`: posts and poems (`layout: poem` for verse)
 - `poem/<parent-slug>/_posts/`: parts of a poem series (`part: N` in front matter)
 - `_data/projects.yml`: entries for the Projects page
+- `_tools/` + `assets/tools/`: browser tools at `/tools/`
 - `_layouts/`, `_includes/`, `_sass/`: modified minima
 
 See `TODO.md` for planned work.
