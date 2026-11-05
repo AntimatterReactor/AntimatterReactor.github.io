@@ -11,6 +11,7 @@
 - Serve locally: `./run.sh`.
 - Poems: `layout: poem` in front matter. One verse line per source line, blank line between stanzas.
 - Poem series: parts go in `poem/<parent-slug>/_posts/YYYY-MM-DD-slug.md` with `title` and `part: N`. `_config.yml` defaults give them `layout: poem`, `series_child: true`, URL `/poem/<parent-slug>/<slug>/`. Parent slug comes from the folder (`categories[1]`). `_includes/series.html` resolves parent, parts, index. Parts are hidden from the Writing grid; the parent tile shows the part count.
+- `scripts/txt2poem.sh`: .txt -> poem post (title from `# ` first line or file name; `-d` date, `-l` lang (default id), `-p`/`-n` series part, `--draft`, `-f`). Cleans CRLF, trailing `\`/spaces, blank runs. `scripts/` is excluded from the build.
 - Projects: edit `_data/projects.yml`.
 - Tools: collection `_tools/<name>.html` (front matter `title`, `summary`, `icon` (Bootstrap Icons class), `order`, `random: true` to load `assets/tools/random.js`). Layout `tool` loads `assets/tools/<name>.js`. URL `/tools/<name>/`; `tools.md` lists them. Randomness: `AcrossRandom.int/shuffle/uniqueInts` (crypto, rejection sampling). Results go in an `<output class="readout">` (LCD panel).
 - Nav order: `header_pages` in `_config.yml`.
