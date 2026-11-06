@@ -1,0 +1,16 @@
+---
+layout: default
+---
+<article class="tool">
+  <header class="tool-header">
+    <nav class="series-crumb" aria-label="Breadcrumb"><a href="{{ "/tools/" | relative_url }}">Tools</a></nav>
+    <h1>{{ page.title | escape }}</h1>
+    {%- if page.summary %}<p class="text-secondary">{{ page.summary }}</p>{% endif -%}
+  </header>
+
+  {{ content }}
+</article>
+{%- if page.random %}
+<script src="{{ "/assets/tools/random.js" | relative_url }}"></script>
+{%- endif %}
+<script src="{{ "/assets/tools/" | append: page.slug | append: ".js" | relative_url }}" defer></script>

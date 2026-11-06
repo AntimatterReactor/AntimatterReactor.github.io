@@ -1,0 +1,41 @@
+---
+title: Random number
+summary: Whole or decimal numbers in a range, with or without repeats.
+icon: bi-123
+order: 1
+random: true
+---
+<form class="tool-form" id="rng-form" novalidate>
+  <div class="field">
+    <label for="rng-min">From</label>
+    <input id="rng-min" type="number" value="1" step="any" required>
+  </div>
+  <div class="field">
+    <label for="rng-max">To</label>
+    <input id="rng-max" type="number" value="100" step="any" required>
+  </div>
+  <div class="field">
+    <label for="rng-count">How many</label>
+    <input id="rng-count" type="number" value="1" min="1" max="1000" step="1" required>
+  </div>
+  <div class="field">
+    <label for="rng-decimals">Decimal places</label>
+    <select id="rng-decimals">
+      <option value="0" selected>None</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+    </select>
+  </div>
+  <div class="field field-check">
+    <input id="rng-unique" type="checkbox">
+    <label for="rng-unique">No repeats</label>
+  </div>
+  <div class="tool-actions">
+    <button type="submit" class="tool-button">Generate</button>
+  </div>
+  <p class="tool-error" id="rng-error" role="alert"></p>
+</form>
+
+<output class="readout" id="rng-out" for="rng-min rng-max rng-count" aria-live="polite"></output>

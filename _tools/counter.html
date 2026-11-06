@@ -1,0 +1,20 @@
+---
+title: Counter
+summary: Words, characters, lines, and stanzas, counted as you type.
+icon: bi-text-paragraph
+order: 4
+---
+<div class="tool-form">
+  <div class="field field-wide">
+    <label for="count-text">Text</label>
+    <textarea id="count-text" rows="10" aria-describedby="count-stats"></textarea>
+  </div>
+</div>
+
+<dl class="count-stats" id="count-stats" aria-live="polite">
+  <div><dt>Words</dt><dd id="c-words">0</dd></div>
+  <div><dt>Characters</dt><dd id="c-chars">0</dd></div>
+  <div><dt>Without spaces</dt><dd id="c-nospace">0</dd></div>
+  <div><dt>Lines</dt><dd id="c-lines">0</dd></div>
+  <div><dt>Stanzas</dt><dd id="c-stanzas">0</dd></div>
+</dl>

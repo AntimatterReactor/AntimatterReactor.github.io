@@ -1,0 +1,22 @@
+---
+title: Picker
+summary: Pick one item from a list, shuffle the list, or flip a coin.
+icon: bi-shuffle
+order: 3
+random: true
+---
+<form class="tool-form" id="pick-form" novalidate>
+  <div class="field field-wide">
+    <label for="pick-items">Items, one per line</label>
+    <textarea id="pick-items" rows="7" spellcheck="false"></textarea>
+  </div>
+  <div class="tool-actions">
+    <button type="submit" class="tool-button" data-action="pick">Pick one</button>
+    <button type="button" class="tool-button tool-button-quiet" data-action="shuffle">Shuffle</button>
+    <button type="button" class="tool-button tool-button-quiet" data-action="coin">Flip a coin</button>
+  </div>
+  <p class="tool-error" id="pick-error" role="alert"></p>
+</form>
+
+<output class="readout" id="pick-out" aria-live="polite"></output>
+<ol class="pick-list" id="pick-list" hidden></ol>
