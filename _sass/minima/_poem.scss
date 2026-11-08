@@ -17,3 +17,10 @@
     text-indent: -1.5em;
   }
 }
+
+.poem-dedication {
+  margin: 0;
+  font-family: $serif-font-family;
+  font-style: italic;
+  color: var(--bs-secondary-color);
+}

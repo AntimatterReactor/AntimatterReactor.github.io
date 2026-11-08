@@ -61,6 +61,7 @@ exclude:
   - PALETTES.md
   - REVIEW.md
   - run.sh
+  - .claude/
   - scripts/
   - .sass-cache/
   - .jekyll-cache/

@@ -23,6 +23,9 @@ layout: default
         {{ page.date | date: date_format }}
       </time>
     </p>
+    {%- if page.dedication %}
+    <p class="poem-dedication">{{ page.dedication | escape }}</p>
+    {%- endif %}
   </header>
 
   <div class="poem-body" itemprop="text">
